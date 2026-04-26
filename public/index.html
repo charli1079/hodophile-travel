@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hodophile - Wanderlust Adventures</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-mountain"></i>
+                <span>Hodophile</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tours">Tours</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Discover Your Next Adventure</h1>
+            <p>Explore breathtaking destinations. Share stories. Book via WhatsApp!</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/+916202255617?text=Hi%20Hodophile!%20I%20want%20to%20book%20a%20trip" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                </a>
+                <a href="#experiences" class="btn btn-secondary">Share Experience</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours -->
+    <section id="tours" class="tours">
+        <div class="container">
+            <h2 class="section-title">Popular Tours</h2>
+            <div class="tours-grid">
+                <div class="tour-card">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop" alt="Himalayas">
+                    <div class="tour-info">
+                        <h3>Himalayan Trek</h3>
+                        <p>7 Days Adventure</p>
+                        <div class="tour-price">$899</div>
+                        <a href="https://wa.me/+916202255617?text=Hi%20Hodophile!%20Himalayan%20Trek%20booking" class="btn btn-small" target="_blank">Book Now</a>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <img src="https://images.unsplash.com/photo-1551524160-a5491815ab51?w=400&h=250&fit=crop" alt="Goa">
+                    <div class="tour-info">
+                        <h3>Goa Beach Escape</h3>
+                        <p>5 Days Relaxation</p>
+                        <div class="tour-price">$599</div>
+                        <a href="https://wa.me/+916202255617?text=Hi%20Hodophile!%20Goa%20Beach%20booking" class="btn btn-small" target="_blank">Book Now</a>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <img src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=400&h=250&fit=crop" alt="Safari">
+                    <div class="tour-info">
+                        <h3>Ranthambore Safari</h3>
+                        <p>4 Days Wildlife</p>
+                        <div class="tour-price">$749</div>
+                        <a href="https://wa.me/+916202255617?text=Hi%20Hodophile!%20Safari%20booking" class="btn btn-small" target="_blank">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences -->
+    <section id="experiences" class="experiences">
+        <div class="container">
+            <h2 class="section-title">Share Your Story</h2>
+            <form id="experienceForm" class="experience-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="text" id="destination" placeholder="Destination" required>
+                <textarea id="story" placeholder="Your travel story..." required></textarea>
+                <input type="file" id="photo" accept="image/*">
+                <button type="submit" class="btn btn-primary">Share Experience</button>
+            </form>
+            <div id="experiencesFeed" class="experiences-feed">
+                <div class="loading">Loading experiences...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Connect With Us</h2>
+            <div class="social-links">
+                <a href="https://wa.me/+916202255617" class="social-link whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://facebook.com" class="social-link facebook" target="_blank">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="https://instagram.com" class="social-link instagram" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Hodophile. Wander. Explore. Share.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
