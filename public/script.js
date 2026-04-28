@@ -75,3 +75,44 @@ document.getElementById('experienceForm').addEventListener('submit', async (e) =
         alert('❌ Try again!');
     }
 });
+// Auto Image Slider for Uttarakhand
+function initTourSlider() {
+    const slider = document.querySelector('.tour-slider');
+    if (!slider) return;
+    
+    const slides = slider.querySelectorAll('.slide');
+    const dots = slider.querySelectorAll('.dot');
+    let currentSlide = 0;
+    let interval;
+
+    function showSlide(index) {
+        slides.forEach((s, i) => s.classList.toggle('active', i === index));
+        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    // Dot clicks
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            showSlide(currentSlide);
+            resetSlider();
+        });
+    });
+
+    // Auto slide every 4 seconds
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function resetSlider() {
+        clearInterval(interval);
+        interval = setInterval(nextSlide, 4000);
+    }
+
+    // Start
+    resetSlider();
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', initTourSlider);
