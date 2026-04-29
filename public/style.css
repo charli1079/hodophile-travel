@@ -201,3 +201,22 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; }
 .inclusion-card ul { list-style: none; }
 
 .cta-section { padding: 80px 0; text-align: center; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; }
+
+/* Dual Tour Buttons */
+.tour-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.tour-buttons .btn {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .tour-buttons { flex-direction: column; }
+    .tour-buttons .btn { width: 100%; }
+}
