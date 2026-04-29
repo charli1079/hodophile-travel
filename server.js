@@ -1,51 +1,43 @@
 const express = require('express');
-const multer = require('multer');
-const path = require('path');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
-// Vercel middleware
 app.use(cors());
-app.use(express.json({ limit: '10mb' }));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Static files
 app.use(express.static('public'));
-app.use('/uploads', express.static('uploads'));
 
-// Specific HTML pages
+// Static HTML pages
 app.get('/varanasi.html', (req, res) => res.sendFile(path.resolve('varanasi.html')));
 app.get('/uttarakhand.html', (req, res) => res.sendFile(path.resolve('uttarakhand.html')));
-app.get('/mussoorie.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'mussoorie.html'));
-});
+app.get('/mussoorie.html', (req, res) => res.sendFile(path.resolve('mussoorie.html')));
 
-// Multer uploads
-const upload = multer({ dest: 'uploads/' });
-
-// API - Experiences
+// Fake API (no file uploads - Vercel compatible)
 let experiences = [
-    { id: 1, name: "Priya Sharma", destination: "Varanasi", story: "Spiritual bliss!", photo: "" }
+    { id: 1, name: "Priya Sharma", destination: "Varanasi", story: "Spiritual experience!", photo: "https://images.unsplash.com/photo-1571847140472-d097d676ab96?w=300" },
+    { id: 2, name: "Rahul K.", destination: "Uttarakhand", story: "Char Dham perfect!", photo: "https://images.unsplash.com/photo-1598564133496-77a8ef8898c7?w=300" }
 ];
 
 app.get('/api/experiences', (req, res) => res.json(experiences));
 
-app.post('/api/experiences', upload.single('photo'), (req, res) => {
-    const newExp = {
+app.post('/api/experiences', (req, res) => {
+    // Fake save (no multer - Vercel readonly)
+    const fakeExp = {
         id: experiences.length + 1,
-        name: req.body.name,
-        destination: req.body.destination,
-        story: req.body.story,
-        photo: req.file ? `/uploads/${req.file.filename}` : ''
+        name: req.body.name || "Anonymous",
+        destination: req.body.destination || "Varanasi",
+        story: req.body.story || "Great trip!",
+        photo: "https://images.unsplash.com/photo-1571847140472-d097d676ab96?w=300"
     };
-    experiences.unshift(newExp);
+    experiences.unshift(fakeExp);
     res.json({ success: true });
 });
 
-// Fallback to index
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve('public/index.html'));
-});
+// Fallback
+app.get('*', (req, res) => res.sendFile(path.resolve('public/index.html')));
 
 module.exports = app;
