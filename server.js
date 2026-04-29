@@ -19,6 +19,9 @@ if (!fs.existsSync('uploads')) fs.mkdirSync('uploads');
 // SPECIFIC PAGES - IMPORTANT ORDER!
 app.get('/varanasi.html', (req, res) => res.sendFile(path.join(__dirname, 'varanasi.html')));
 app.get('/uttarakhand.html', (req, res) => res.sendFile(path.join(__dirname, 'uttarakhand.html')));
+app.get('/mussoorie.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'mussoorie.html'));
+});
 
 // API
 let experiences = [];
