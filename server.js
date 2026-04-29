@@ -19,6 +19,11 @@ app.use(express.urlencoded({ extended: true }));
 // Specific pages FIRST
 app.get('/varanasi.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'varanasi.html'));
+// Add AFTER varanasi.html route:
+app.get('/uttarakhand.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'uttarakhand.html'));
+});
+
 });
 
 // API Routes
